@@ -1,1 +1,1 @@
-## The backend is under development
+## The project is under development
