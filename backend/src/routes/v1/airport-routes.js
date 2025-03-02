@@ -21,7 +21,7 @@ router.delete('/:id',
 )
 
 router.patch('/:id',
-    AirplaneMiddleware.validateUpdateRequest,
+    AirportMiddlewares.validateUpdateRequest,
     AirportController.updateAirport
 )
 

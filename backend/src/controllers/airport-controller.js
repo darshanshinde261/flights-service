@@ -1,7 +1,7 @@
-const {AirportService} = require("../services")
-const {StatusCodes} = require("http-status-codes")
+const { AirportService } = require("../services")
+const { StatusCodes } = require("http-status-codes")
 
-const {SuccessResponse,ErrorResponse} = require("../utils/common")
+const { SuccessResponse,ErrorResponse } = require("../utils/common")
 
 async function createAirport(req,res) {
     try{

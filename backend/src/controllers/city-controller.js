@@ -1,5 +1,5 @@
-const {CityService} = require("../services")
-const {StatusCodes} = require("http-status-codes")
+const { CityService } = require("../services")
+const { StatusCodes } = require("http-status-codes")
 
 const {SuccessResponse,ErrorResponse} = require("../utils/common")
 
