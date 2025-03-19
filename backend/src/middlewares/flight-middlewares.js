@@ -2,6 +2,7 @@ const { StatusCodes } = require('http-status-codes')
 
 const { ErrorResponse } = require('../utils/common')
 const AppError = require('../utils/errors/app-error');
+const {compareTime} = require('../utils/helpers/datetime-helper')
 
 function validateCreateRequest(req,res,next) {
     if(!req.body.flightNumber){
@@ -60,8 +61,18 @@ function validateCreateRequest(req,res,next) {
             .status(StatusCodes.BAD_REQUEST)
             .json(ErrorResponse)
     }
+    if(!compareTime(req.body.arrivalTime,req.body.departureTime)){
+        ErrorResponse.message = "Something went wrong while creating flight";
+        ErrorResponse.error=new AppError(["the time of arrival should not less than departure time"],StatusCodes.BAD_REQUEST)
+        return res
+            .status(StatusCodes.BAD_REQUEST)
+            .json(ErrorResponse)
+    }
     next();
 };
+
+
+
 function validateUpdateRequest(req,res,next){
     
     next();
